@@ -1,15 +1,21 @@
-
+import earth from '../../assets/img/earth.png';
 function Main() {
   return (
       <main className='main'>
-        <h1 className='title'>Hello SpaceX</h1>
-        <p className='subtitle'>Discover the vast expanses of space</p>
-        <div className='main__button'>
-          <a href='/' className='button button_yellow'>Learn more</a>
-        </div>
-        <div className='main__button'>
-        <a href='/' className='button button_outline'>Learn more</a>
-        </div>
+        <section className='discover'>
+          <div className='discover__container container'>
+            <div className='discover__content'>
+              <article className="discover__block-text block-text">
+                <h1 className="block-text__title block-text__title--pink">Discover the vast expanses of <span>space</span></h1>
+                <p className="block-text__subtitle block-text__subtitle--yellow">Where the possibilities are <span>endless!</span></p>
+                <a href='/' className='block-text__button button button--yellow'>Learn more</a>
+              </article>
+            </div>
+            <div className="discover__image">
+              <img src={earth} alt="Earth and rocket" />
+            </div>
+          </div>
+        </section>
       </main>
 
   );
