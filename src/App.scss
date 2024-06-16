@@ -81,6 +81,7 @@ $mobile: 360px;
   flex: 1 1 auto;
 }
 
+// Title
 .title {
   color: $yellow-color;
   font-family: $font-family-text;
@@ -88,11 +89,65 @@ $mobile: 360px;
   font-size: 72px;
 }
 
+// Subtitle
 .subtitle {
   color: $white-color;
   font-family: $font-family-text;
   font-weight: $font-weight-bold;
   font-size: 32px;
+}
+
+// Button
+.button {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: $font-weight-bold;
+  padding: 14px 40px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  
+  &--yellow {
+    color: $black-color;
+    background-color: $yellow-color;
+    &:hover {
+      background-color: $yellow-shadow-color;
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: $yellow-color;
+    border: 2px solid $yellow-color;
+    &:hover {
+      color: $yellow-shadow-color;
+      border: 2px solid $yellow-shadow-color;
+    }
+    @media (max-width: $tablet) {
+      font-size: 16px;
+      padding: 7px 40px;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    font-size: 16px;
+    padding: 7px 40px;
+  }
+}
+
+// Title 3
+.title-3 {
+  font-size: 32px;
+  font-weight: $font-weight-extraBold;
+  color: $white-color;
+
+  @media (max-width: $tablet) {
+    font-size: 24px;
+  }
+
+  @media (max-width: $mobile) {
+    font-size: 18px;
+  }
 }
 
 // Header
@@ -226,6 +281,7 @@ $mobile: 360px;
   }
 }
 
+// Close-burger-menu
 .close-icon-menu {
   position: relative;
   display: none;
@@ -312,7 +368,7 @@ $mobile: 360px;
     }
 
     &__content {
-      margin: 30px 7px 44px 7px;
+      padding: 30px 7px 44px 7px;
     }
 
     &__banner-text {
@@ -331,23 +387,24 @@ $mobile: 360px;
 }
 }
 
+// Banner text
 .banner-text {
   &__title {
     font-size: 72px;
     font-weight: $font-weight-extraBold;
-    line-height: 1;
     color: $white-color;
-
+    
     &--pink span {
       color: $pink-color;
     }
   }
-
+  
   &__subtitle {
     font-size: 32px;
     font-weight: $font-weight-extraBold;
     color: $white-color;
-    margin: 22px 0;
+    line-height: 1.2;
+    margin: 20px 0;
 
     &--yellow span {
       color: $yellow-color;
@@ -376,12 +433,8 @@ $mobile: 360px;
   }
 }
 
-// Offers
+// Offers title
 .offers__title {
-  font-size: 32px;
-  font-weight: $font-weight-extraBold;
-  line-height: 1;
-  color: $white-color;
   margin: 0 0 40px 0;
 
   @media (max-width: $tablet) {
@@ -390,12 +443,12 @@ $mobile: 360px;
   }
 }
 
+// Offers
 .offers {
   padding: 60px 0;
   width: 100%;
 
   &__content {
-    padding: 0 0 60px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -404,14 +457,13 @@ $mobile: 360px;
   }
 
   &__block-text {
-    flex: 0 1 48%;
+    flex: 0 1 calc(50% - 20px);
   }
 
   @media (max-width: $tablet) {
     padding: 55px 0;
 
     &__content {
-      padding: 0 0 55px 0;
       flex-direction: row;
       flex-wrap: wrap;
       gap: 30px;
@@ -433,10 +485,6 @@ $mobile: 360px;
       padding: 0;
     }
 
-    &__content {
-      padding: 0 0 50px 0;
-    }
-
     &__block-text {
       flex: 1 1 calc(50% - 15px);
       &.block-text--big {
@@ -446,6 +494,7 @@ $mobile: 360px;
   }
 }
 
+// Block text
 .block-text {
   padding: 50px 70px 35px 35px;
   
@@ -552,41 +601,107 @@ $mobile: 360px;
   }
 }
 
-// Button
-.button {
-  display: inline-block;
-  font-size: 22px;
-  font-weight: $font-weight-bold;
-  padding: 14px 40px;
-  border-radius: 100px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  
-  &--yellow {
-    color: $black-color;
-    background-color: $yellow-color;
+// Description journey
+.description-journey {
+  padding: 0 0 60px 0;
+
+  &__button {
+    display: inline-block;
+    font-size: 20px;
+    color: $yellow-color;
+    font-weight: $font-weight-extraBold;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
     &:hover {
-      background-color: $yellow-shadow-color;
+      color: $yellow-shadow-color;
     }
   }
 
-  &--outline {
-    background-color: transparent;
-    color: $yellow-color;
-    border: 2px solid $yellow-color;
-    &:hover {
-      color: $yellow-shadow-color;
-      border: 2px solid $yellow-shadow-color;
+  &__button::-webkit-details-marker {
+    display: none;
+  }
+
+  &__text {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 17px 0;
+  }
+
+  &__details {
+    margin-top: 20px;
+  }
+
+  &text--more {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  details[open] &__more {
+    display: block;
+  }
+
+  @media (max-width: $tablet) {
+    padding: 0 0 55px 0;
+    &__title {
+      margin-bottom: 13px;
     }
-    @media (max-width: $tablet) {
+
+    &__text {
       font-size: 16px;
-      padding: 7px 40px;
+      margin: 13px 0 20px 0;
+    }
+
+    &__link {
+      font-size: 16px;
     }
   }
 
   @media (max-width: $mobile) {
-    font-size: 16px;
-    padding: 7px 40px;
+    padding: 0 0 50px 0;
+    &__title {
+      margin-bottom: 20px;
+    }
+
+    &__text {
+      font-size: 14px;
+      margin: 20px 0;
+    }
+
+    &__link {
+      font-size: 14px;
+    }
+  }
+}
+
+// Footer
+.footer {
+  background-color: $black-color;
+  z-index: 5;
+  
+  &__container {
+    min-height: 127px;
+  }
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  
+  &__logo {
+    width: 210px;
+    height: 80px;
+    z-index: 5;
+  }
+
+  &__text {
+    font-size: 18px;
+    font-weight: $font-weight-extraBold;
+    color: $yellow-color;
+    line-height: 28px;
   }
 }
   

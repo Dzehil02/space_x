@@ -18,7 +18,7 @@ function Main() {
         </section>
         <section className='offers'>
           <div className='offers__container container'>
-            <h3 className='offers__title'>Offers</h3>
+            <h3 className='offers__title title-3'>Offers</h3>
             <div className='offers__content'>
               <article className="offers__block-text block-text block-text--big block-text--1">
                 <h2 className="block-text__title block-text__title--big">Move the borders of reality!</h2>
@@ -43,8 +43,21 @@ function Main() {
             </div>
           </div>
         </section>
+        <section className='description-journey'>
+          <div className='description-journey__container container'>
+            <div className="description-journey__content">
+              <h3 className="description-journey__title title-3">Embark on a space journey</h3>
+              <p className="description-journey__text">Travelling into space is one of the most exciting and unforgettable adventures that can change your life forever. And if you have ever dreamed of exploring stars, planets and galaxies, then our company is ready to help you realize this dream. We offer a unique experience that will allow you to go on a space journey and see all the secrets of the universe. We guarantee that every moment in space will be filled with incredible impressions, excitement and new discoveries. Our team of professionals takes care of your safety and comfort so that you can fully enjoy your adventure in space. We offer various options for space excursions.</p>
+              <details class="description-journey__details">
+                <summary className="description-journey__summary description-journey__button">Read more</summary>
+                <p class="description-journey__text description-journey__text--more">
+                Our space tours cater to all levels of adventure seekers, from short orbital flights to longer missions that delve deeper into the cosmos. You can experience the breathtaking view of Earth from space, float in zero gravity, and witness the stunning beauty of distant stars and galaxies. Each excursion is meticulously planned to ensure you make the most of your journey, with activities and sights that will leave you in awe. For those who want to immerse themselves further, we offer specialized programs where you can participate in scientific experiments, learning about the intricacies of space travel and the universe. Our state-of-the-art spacecraft are equipped with the latest technology to provide you with a safe, comfortable, and unforgettable experience.
+                </p>
+              </details>
+            </div>
+          </div>
+        </section>
       </main>
-
   );
 }
 
