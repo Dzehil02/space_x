@@ -251,10 +251,10 @@ $mobile: 360px;
   }
 }
 
-// Main
+// Main banner
 .discover {
   padding: 60px 0 65px 0;
-  background-image: url('assets/img/bg_space_1_min.jpg');
+  background-image: url('assets/img/bg_space_banner_min.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -315,7 +315,7 @@ $mobile: 360px;
       margin: 30px 7px 44px 7px;
     }
 
-    &__block-text {
+    &__banner-text {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -331,7 +331,7 @@ $mobile: 360px;
 }
 }
 
-.block-text {
+.banner-text {
   &__title {
     font-size: 72px;
     font-weight: $font-weight-extraBold;
@@ -376,6 +376,181 @@ $mobile: 360px;
   }
 }
 
+// Offers
+.offers__title {
+  font-size: 32px;
+  font-weight: $font-weight-extraBold;
+  line-height: 1;
+  color: $white-color;
+  margin: 0 0 40px 0;
+
+  @media (max-width: $tablet) {
+    font-size: 24px;
+    margin: 0 0 30px 0;
+  }
+}
+
+.offers {
+  padding: 60px 0;
+  width: 100%;
+
+  &__content {
+    padding: 0 0 60px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+  }
+
+  &__block-text {
+    flex: 0 1 48%;
+  }
+
+  @media (max-width: $tablet) {
+    padding: 55px 0;
+
+    &__content {
+      padding: 0 0 55px 0;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    &__block-text {
+      padding: 105px 30px 20px 25px;
+      flex: 0 1 calc(50% - 15px);
+      &.block-text--big {
+        flex: 0 1 calc(50% - 15px);
+      }
+    }
+  }
+
+  @media (max-width: $mobile) {
+    padding: 50px 0;
+
+    &__container {
+      padding: 0;
+    }
+
+    &__content {
+      padding: 0 0 50px 0;
+    }
+
+    &__block-text {
+      flex: 1 1 calc(50% - 15px);
+      &.block-text--big {
+        flex: 1 1 calc(50% - 15px);
+      }
+    }
+  }
+}
+
+.block-text {
+  padding: 50px 70px 35px 35px;
+  
+  &__title {
+    font-size: 46px;
+    font-weight: $font-weight-extraBold;
+    line-height: 1;
+    color: $white-color;
+
+    &--big {
+      font-size: 74px;
+    }
+
+    &--space {
+      max-width: 290px;
+    }
+
+    &--dream {
+      max-width: 230px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 24px;
+    font-weight: $font-weight-extraBold;
+    color: $white-color;
+    margin: 22px 0;
+
+    &--majestic {
+      display: none;
+    }
+
+    &--big {
+      font-size: 26px;
+    }
+  }
+
+  &--big {
+    & h2 {
+      max-width: 635px;
+    }
+    padding: 35px 0 35px 35px;
+    flex: 0 1 100%;
+  }
+
+  &--1 {
+    background-image: url('assets/img/bg_space_1_min.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &--2 {
+    background-image: url('assets/img/bg_space_2_min.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &--3 {
+    background-image: url('assets/img/bg_space_3_min.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &--4 {
+    background-image: url('assets/img/bg_space_4_min.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  @media (max-width: $tablet) {
+    padding: 105px 30px 20px 25px;
+    flex: 1 1 calc(50% - 15px);
+    &.block-text--big {
+      flex: 1 1 calc(50% - 15px);
+    }
+    &__title {
+      font-size: 40px;
+    }
+
+    &__subtitle {
+      font-size: 16px;
+      &--majestic {
+        display: block;
+      }
+      &--space {
+        display: none;
+      }
+    }
+
+    &__title--big {
+      font-size: 40px;
+    }
+    &__subtitle--big {
+      font-size: 16px;
+      & span {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: $mobile) {
+    padding: 100px 30px 30px 25px;
+  }
+}
 
 // Button
 .button {
@@ -402,6 +577,10 @@ $mobile: 360px;
     &:hover {
       color: $yellow-shadow-color;
       border: 2px solid $yellow-shadow-color;
+    }
+    @media (max-width: $tablet) {
+      font-size: 16px;
+      padding: 7px 40px;
     }
   }
 
