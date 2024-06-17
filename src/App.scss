@@ -56,11 +56,11 @@ $mobile: 360px;
   }
 }
 
-@mixin flex-half($gap: 15px, $grow: false) {
+@mixin flex-half($basic: 48%, $grow: false) {
   @if $grow {
-    flex: 1 1 calc(50% - #{$gap});
+    flex: 1 1 $basic;
   } @else {
-    flex: 0 1 calc(50% - #{$gap});
+    flex: 0 1 $basic;
   }
 }
 
@@ -482,7 +482,7 @@ $mobile: 360px;
   }
 
   &__block-text {
-    @include flex-half(20px);
+    flex: 1 1 calc(50% - 20px);
   }
 
   @include media-query($tablet) {
@@ -496,9 +496,9 @@ $mobile: 360px;
 
     &__block-text {
       padding: 105px 30px 20px 25px;
-      @include flex-half(15px);
+      @include flex-half;
       &.block-text--big {
-        @include flex-half(15px);
+        @include flex-half;
       }
     }
   }
@@ -511,9 +511,9 @@ $mobile: 360px;
     }
 
     &__block-text {
-      @include flex-half(15px, true);
+      @include flex-half(48%, true);
       &.block-text--big {
-        @include flex-half(15px, true);
+        @include flex-half(48%, true);
       }
     }
   }
@@ -521,7 +521,7 @@ $mobile: 360px;
 
 // Block text
 .block-text {
-  padding: 50px 70px 35px 35px;
+  padding: 50px 65px 35px 35px;
   
   &__title {
     font-size: 46px;
@@ -584,15 +584,15 @@ $mobile: 360px;
 
   @include media-query($tablet) {
     padding: 105px 20px 20px 25px;
-    @include flex-half(15px, true);
+    @include flex-half(48%, true);
     &.block-text--big {
-      @include flex-half(15px, true);
+      @include flex-half(48%, true);
     }
     &__title {
       font-size: 40px;
 
       &--small {
-        max-width: 245px;
+        max-width: 635px;
       }
     }
 
@@ -618,7 +618,7 @@ $mobile: 360px;
   }
 
   @include media-query($mobile) {
-    padding: 100px 30px 30px 25px;
+    padding: 100px 40px 30px 25px;
   }
 }
 
