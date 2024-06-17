@@ -11,17 +11,17 @@ function Header() {
                     <nav className="menu__body">
                         <ul className="menu__list">
                             <li className="menu__item">
-                                <Link href="/" className="menu__link">
+                                <Link href="./" className="menu__link">
                                     Home
                                 </Link>
                             </li>
                             <li className="menu__item">
-                                <Link href="/" className="menu__link">
+                                <Link href="./" className="menu__link">
                                     Products
                                 </Link>
                             </li>
                             <li className="menu__item">
-                                <Link href="/" className="menu__link">
+                                <Link href="./" className="menu__link">
                                     <Basket className="menu__icon" />
                                 </Link>
                             </li>
