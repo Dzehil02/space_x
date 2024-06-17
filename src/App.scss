@@ -37,17 +37,46 @@ $black-color: #000000;
 $white-color: #FFFFFF;
 $yellow-shadow-color: rgba(235, 255, 0, 0.6);
 
-$bg-color: #0D1E48;
-
 $font-family-text: 'Lato', sans-serif;
 $font-weight-bold: 700;
 $font-weight-extraBold: 900;
+$font-size-large: 24px;
+$font-size-small: 16px;
 
 $maxWidth: 1248px;
 $maxWidthContainer: 1118px;
 
 $tablet: 768px;
 $mobile: 360px;
+
+// Миксины
+@mixin media-query($device) {
+  @media (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin flex-half($gap: 15px, $grow: false) {
+  @if $grow {
+    flex: 1 1 calc(50% - #{$gap});
+  } @else {
+    flex: 0 1 calc(50% - #{$gap});
+  }
+}
+
+@mixin block-background($img) {
+  background-image: url($img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin flex-container($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
 
 .container {
   max-width: $maxWidthContainer;
@@ -56,21 +85,26 @@ $mobile: 360px;
 }
 
 // Tablet
-@media (max-width: $tablet) {
+@include media-query($tablet) {
   .container {
     max-width: 710px;
   }
 }
 
 // Mobile
-@media (max-width: $mobile) {
+@include media-query($mobile) {
   .container {
     max-width: 320px;
   }
 }
 
 .App {
-  background-color: $bg-color;
+  background-blend-mode: multiply;
+  background-image: linear-gradient(
+      to bottom left,
+      #0D1E48,
+      #304571
+  );
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -123,14 +157,14 @@ $mobile: 360px;
       color: $yellow-shadow-color;
       border: 2px solid $yellow-shadow-color;
     }
-    @media (max-width: $tablet) {
-      font-size: 16px;
+    @include media-query($tablet) {
+      font-size: $font-size-small;
       padding: 7px 40px;
     }
   }
 
-  @media (max-width: $mobile) {
-    font-size: 16px;
+  @include media-query($mobile) {
+    font-size: $font-size-small;
     padding: 7px 40px;
   }
 }
@@ -141,11 +175,11 @@ $mobile: 360px;
   font-weight: $font-weight-extraBold;
   color: $white-color;
 
-  @media (max-width: $tablet) {
-    font-size: 24px;
+  @include media-query($tablet) {
+    font-size: $font-size-large;
   }
 
-  @media (max-width: $mobile) {
+  @include media-query($mobile) {
     font-size: 18px;
   }
 }
@@ -157,9 +191,7 @@ $mobile: 360px;
   
   &__container {
     min-height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex-container($justify: space-between, $align: center); 
   }
   
   &__logo {
@@ -168,14 +200,14 @@ $mobile: 360px;
     z-index: 5;
   }
   
-  @media (max-width: $tablet) {
+  @include media-query($tablet) {
     &__logo {
       width: 72px;
       height: 24px;
     }
   }
 
-  @media (max-width: $mobile) {
+  @include media-query($mobile) {
     &:target .menu__body {
       left: 0;
     }
@@ -223,7 +255,7 @@ $mobile: 360px;
     transition: all 0.3s ease 0s;
   }
 
-  @media (max-width: $mobile) {
+  @include media-query($mobile) {
     &__body {
       position: fixed;
       top: 0;
@@ -248,7 +280,7 @@ $mobile: 360px;
     }
 
     &__link {
-      font-size: 24px;
+      font-size: $font-size-large;
     }
   }
 
@@ -276,7 +308,7 @@ $mobile: 360px;
     height: 2px;
   }
 
-  @media (max-width: $mobile) {
+  @include media-query($mobile) {
     display: flex;
   }
 }
@@ -310,17 +342,12 @@ $mobile: 360px;
 // Main banner
 .discover {
   padding: 60px 0 65px 0;
-  background-image: url('assets/img/bg_space_banner_min.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  @include block-background('assets/img/bg_space_banner_min.jpg');
   width: 100%;
   height: 490px;
 
   &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex-container($justify: space-between, $align: center);
   }
 
   &__content {
@@ -328,10 +355,8 @@ $mobile: 360px;
   }
 
   &__image {
+    @include flex-container($justify: flex-end, $align: center);
     flex: 0 1 30%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
     margin-right: -4%;
 
     img {
@@ -340,7 +365,7 @@ $mobile: 360px;
     }
   }
 
-  @media (max-width: $tablet) {
+  @include media-query($tablet) {
     height: 420px;
     padding: 26px 0 58px 0;
 
@@ -359,7 +384,7 @@ $mobile: 360px;
     }
   }
 
-  @media (max-width: $mobile) {
+  @include media-query($mobile) {
     height: 450px;
     padding: 0;
 
@@ -372,10 +397,7 @@ $mobile: 360px;
     }
 
     &__banner-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      @include flex-container($direction: column, $justify: center, $align: center);
     }
 
     &__image {
@@ -411,7 +433,7 @@ $mobile: 360px;
     }
   }
 
-  @media (max-width: $tablet) {
+  @include media-query($tablet) {
     &__title {
       font-size: 48px;
     }
@@ -421,13 +443,13 @@ $mobile: 360px;
     }
   }
 
-  @media (max-width: $mobile) {
+  @include media-query($mobile) {
     &__title {
       font-size: 36px;
     }
 
     &__subtitle {
-      font-size: 16px;
+      font-size: $font-size-small;
       margin: 17px 0;
     }
   }
@@ -437,8 +459,8 @@ $mobile: 360px;
 .offers__title {
   margin: 0 0 40px 0;
 
-  @media (max-width: $tablet) {
-    font-size: 24px;
+  @include media-query($tablet) {
+    font-size: $font-size-large;
     margin: 0 0 30px 0;
   }
 }
@@ -450,17 +472,17 @@ $mobile: 360px;
 
   &__content {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 40px;
     width: 100%;
   }
 
   &__block-text {
-    flex: 0 1 calc(50% - 20px);
+    @include flex-half(20px);
   }
 
-  @media (max-width: $tablet) {
+  @include media-query($tablet) {
     padding: 55px 0;
 
     &__content {
@@ -471,14 +493,14 @@ $mobile: 360px;
 
     &__block-text {
       padding: 105px 30px 20px 25px;
-      flex: 0 1 calc(50% - 15px);
+      @include flex-half(15px);
       &.block-text--big {
-        flex: 0 1 calc(50% - 15px);
+        @include flex-half(15px);
       }
     }
   }
 
-  @media (max-width: $mobile) {
+  @include media-query($mobile) {
     padding: 50px 0;
 
     &__container {
@@ -486,9 +508,9 @@ $mobile: 360px;
     }
 
     &__block-text {
-      flex: 1 1 calc(50% - 15px);
+      @include flex-half(15px, true);
       &.block-text--big {
-        flex: 1 1 calc(50% - 15px);
+        @include flex-half(15px, true);
       }
     }
   }
@@ -518,7 +540,7 @@ $mobile: 360px;
   }
 
   &__subtitle {
-    font-size: 24px;
+    font-size: $font-size-large;
     font-weight: $font-weight-extraBold;
     color: $white-color;
     margin: 22px 0;
@@ -541,42 +563,30 @@ $mobile: 360px;
   }
 
   &--1 {
-    background-image: url('assets/img/bg_space_1_min.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    @include block-background('assets/img/bg_space_1_min.jpg');
   }
   &--2 {
-    background-image: url('assets/img/bg_space_2_min.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    @include block-background('assets/img/bg_space_2_min.jpg');
   }
   &--3 {
-    background-image: url('assets/img/bg_space_3_min.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    @include block-background('assets/img/bg_space_3_min.jpg');
   }
   &--4 {
-    background-image: url('assets/img/bg_space_4_min.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    @include block-background('assets/img/bg_space_4_min.jpg');
   }
 
-  @media (max-width: $tablet) {
+  @include media-query($tablet) {
     padding: 105px 30px 20px 25px;
-    flex: 1 1 calc(50% - 15px);
+    @include flex-half(15px, true);
     &.block-text--big {
-      flex: 1 1 calc(50% - 15px);
+      @include flex-half(15px, true);
     }
     &__title {
       font-size: 40px;
     }
 
     &__subtitle {
-      font-size: 16px;
+      font-size: $font-size-small;
       &--majestic {
         display: block;
       }
@@ -589,14 +599,14 @@ $mobile: 360px;
       font-size: 40px;
     }
     &__subtitle--big {
-      font-size: 16px;
+      font-size: $font-size-small;
       & span {
         display: none;
       }
     }
   }
 
-  @media (max-width: $mobile) {
+  @include media-query($mobile) {
     padding: 100px 30px 30px 25px;
   }
 }
@@ -642,23 +652,23 @@ $mobile: 360px;
     display: block;
   }
 
-  @media (max-width: $tablet) {
+  @include media-query($tablet) {
     padding: 0 0 55px 0;
     &__title {
       margin-bottom: 13px;
     }
 
     &__text {
-      font-size: 16px;
+      font-size: $font-size-small;
       margin: 13px 0 20px 0;
     }
 
     &__link {
-      font-size: 16px;
+      font-size: $font-size-small;
     }
   }
 
-  @media (max-width: $mobile) {
+  @include media-query($mobile) {
     padding: 0 0 50px 0;
     &__title {
       margin-bottom: 20px;
@@ -685,9 +695,7 @@ $mobile: 360px;
   }
   
   &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex-container($direction: column);
     padding-bottom: 20px;
   }
   
