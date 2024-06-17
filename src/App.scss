@@ -95,6 +95,7 @@ $mobile: 360px;
 @include media-query($mobile) {
   .container {
     max-width: 320px;
+    padding: 0;
   }
 }
 
@@ -105,6 +106,7 @@ $mobile: 360px;
       #0D1E48,
       #304571
   );
+  font-family: $font-family-text;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -118,7 +120,6 @@ $mobile: 360px;
 // Title
 .title {
   color: $yellow-color;
-  font-family: $font-family-text;
   font-weight: $font-weight-extraBold;
   font-size: 72px;
 }
@@ -126,7 +127,6 @@ $mobile: 360px;
 // Subtitle
 .subtitle {
   color: $white-color;
-  font-family: $font-family-text;
   font-weight: $font-weight-bold;
   font-size: 32px;
 }
@@ -169,21 +169,6 @@ $mobile: 360px;
   }
 }
 
-// Title 3
-.title-3 {
-  font-size: 32px;
-  font-weight: $font-weight-extraBold;
-  color: $white-color;
-
-  @include media-query($tablet) {
-    font-size: $font-size-large;
-  }
-
-  @include media-query($mobile) {
-    font-size: 18px;
-  }
-}
-
 // Header
 .header {
   background-color: $black-color;
@@ -208,6 +193,13 @@ $mobile: 360px;
   }
 
   @include media-query($mobile) {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    &__container {
+      min-height: 48px;
+    }
     &:target .menu__body {
       left: 0;
     }
@@ -232,7 +224,6 @@ $mobile: 360px;
 
   &__link {
     color: $white-color;
-    font-family: $font-family-text;
     font-weight: $font-weight-bold;
     font-size: 18px;
   }
@@ -385,15 +376,19 @@ $mobile: 360px;
   }
 
   @include media-query($mobile) {
-    height: 450px;
+    height: 500px;
     padding: 0;
 
     &__container {
-      flex-direction: column-reverse;
+      padding: 0 13px;
     }
 
     &__content {
-      padding: 30px 7px 44px 7px;
+      padding: 30px 0 45px 0;
+    }
+
+    &__container {
+      flex-direction: column-reverse;
     }
 
     &__banner-text {
@@ -403,7 +398,7 @@ $mobile: 360px;
     &__image {
       flex: 0 1 44%;
       overflow: hidden;
-      margin: -36% 0 0 0;
+      margin: -20% 0 0 0;
       z-index: 1;
   }
 }
@@ -415,6 +410,7 @@ $mobile: 360px;
     font-size: 72px;
     font-weight: $font-weight-extraBold;
     color: $white-color;
+    line-height: 1;
     
     &--pink span {
       color: $pink-color;
@@ -458,10 +454,17 @@ $mobile: 360px;
 // Offers title
 .offers__title {
   margin: 0 0 40px 0;
+  font-weight: $font-weight-extraBold;
+  color: $white-color;
+  font-size: 32px;
 
   @include media-query($tablet) {
     font-size: $font-size-large;
     margin: 0 0 30px 0;
+  }
+
+  @include media-query($mobile) {
+    font-size: 18px;
   }
 }
 
@@ -530,12 +533,16 @@ $mobile: 360px;
       font-size: 74px;
     }
 
+    &--small {
+      max-width: 280px;
+    }
+
     &--space {
       max-width: 290px;
     }
 
     &--dream {
-      max-width: 230px;
+      max-width: 270px;
     }
   }
 
@@ -576,13 +583,17 @@ $mobile: 360px;
   }
 
   @include media-query($tablet) {
-    padding: 105px 30px 20px 25px;
+    padding: 105px 20px 20px 25px;
     @include flex-half(15px, true);
     &.block-text--big {
       @include flex-half(15px, true);
     }
     &__title {
       font-size: 40px;
+
+      &--small {
+        max-width: 245px;
+      }
     }
 
     &__subtitle {
@@ -646,6 +657,12 @@ $mobile: 360px;
     display: none;
   }
 
+  &__title {
+    font-size: 32px;
+    font-weight: $font-weight-extraBold;
+    color: $white-color;
+  }
+
   &__text {
     font-size: 20px;
     color: rgba(255, 255, 255, 0.6);
@@ -667,8 +684,10 @@ $mobile: 360px;
 
   @include media-query($tablet) {
     padding: 0 0 55px 0;
+
     &__title {
       margin-bottom: 13px;
+      font-size: $font-size-large;
     }
 
     &__text {
@@ -676,15 +695,17 @@ $mobile: 360px;
       margin: 13px 0 20px 0;
     }
 
-    &__link {
+    &__button {
       font-size: $font-size-small;
     }
   }
 
   @include media-query($mobile) {
     padding: 0 0 50px 0;
+    
     &__title {
       margin-bottom: 20px;
+      font-size: 18px;
     }
 
     &__text {
@@ -692,7 +713,7 @@ $mobile: 360px;
       margin: 20px 0;
     }
 
-    &__link {
+    &__button {
       font-size: 14px;
     }
   }
@@ -710,12 +731,6 @@ $mobile: 360px;
   &__content {
     @include flex-container($direction: column);
     padding-bottom: 20px;
-  }
-  
-  &__logo {
-    width: 210px;
-    height: 80px;
-    z-index: 5;
   }
 
   &__text {

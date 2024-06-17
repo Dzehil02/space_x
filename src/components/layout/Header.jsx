@@ -2,11 +2,12 @@ import Logo from '../common/Logo';
 import logo from '../../assets/img/logo.svg';
 import Link from '../common/Link';
 import Basket from '../common/Basket';
-function Header() {
+
+export default function Header() {
     return (
         <header id="open" className="header">
             <div id="close" className="header__container container">
-                <Logo src={logo} alt={'Logo'} className="header__logo"/>
+                <Logo src={logo} alt="Logo" className="header__logo" />
                 <div className="header__menu menu">
                     <nav className="menu__body">
                         <ul className="menu__list">
@@ -38,5 +39,3 @@ function Header() {
         </header>
     );
 }
-
-export default Header;

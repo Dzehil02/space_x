@@ -1,7 +1,7 @@
-const Link = ({ href, className, children }) => (
+const Link = ({href, className, children}) => (
     <a href={href} className={className}>
-      {children}
+        {children}
     </a>
-  );
-  
+);
+
 export default Link;
