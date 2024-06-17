@@ -1,25 +1,36 @@
-# Getting Started with Create React App
+# Одностраничное SPA [приложение](https://dzehil02.github.io/space_x/ 'https://dzehil02.github.io/space_x/') на основе [макета](https://www.figma.com/design/to5Dx1SQ500R8bhWGrVMul/TEST?node-id=0-1&t=Col43RxUwlVJizMX-0 'https://www.figma.com/design/to5Dx1SQ500R8bhWGrVMul/TEST?node-id=0-1&t=Col43RxUwlVJizMX-0') в Figma.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##### Версия Node: 20.11.1
 
-## Available Scripts
+##### Версия NPM: 10.2.4
 
-In the project directory, you can run:
+### Особенности проекта:
 
-### `npm start`
+-   Проект был создан с использованием шаблона `create-react-app`.
+-   Адаптивная вёрстка, которая включает три вьюпорта: 1248, 768, 360.
+-   Интерактивные элементы имеют эффекты наведения.
+-   Бургер-меню для мобильных устройств, реализованное с помощью CSS.
+-   Кнопка "Read more" для показа дополнительного контента, реализованная с помощью CSS.
+-   Flexbox для размещения элементов.
+-   Multiple Backgrounds фон.
+-   Все изображения оптимизированы.
+-   Используются SVG-изображения.
+-   Для наименования классов используется методология БЭМ.
+-   Вёрстка реализована в `App.js`, стили хранятся в `App.scss`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Запуск проекта:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Клонирование репозитория:
+```
+git clone <repository-url>
+cd <repository-name>
+```
+2. Установка зависимостей:
+  `npm install`
+3. Запуск приложения:
+   `npm start`
+4. Приложение доступно в браузере: http://localhost:3000
 
-### `npm run build`
+### Будущие улучшения:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Рефакторинг стилей:** Разделение стилей на несколько файлов и их хранение рядом с соответствующими компонентами для улучшения модульности и удобства поддержки кода.

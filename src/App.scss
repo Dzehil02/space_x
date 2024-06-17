@@ -1,4 +1,4 @@
-// Обнуление
+// Reset
 *,
 *::before,
 *::after {
@@ -29,7 +29,7 @@ h6 {
   font-weight: inherit;
 }
 
-// Переменные
+// Variables
 $pink-color: #FF70D9;
 $yellow-color: #EBFF00;
 $blue-color: #304571;
@@ -49,7 +49,7 @@ $maxWidthContainer: 1118px;
 $tablet: 768px;
 $mobile: 360px;
 
-// Миксины
+// Mixins
 @mixin media-query($device) {
   @media (max-width: $device) {
     @content;
@@ -351,7 +351,7 @@ $mobile: 360px;
   }
 
   &__content {
-    flex: 0 1 64%;
+    flex: 1 1 64%;
   }
 
   &__image {
@@ -370,7 +370,7 @@ $mobile: 360px;
     padding: 26px 0 58px 0;
 
     &__content {
-      flex: 0 1 61%;
+      flex: 1 1 61%;
     }
 
     &__image {
@@ -623,10 +623,23 @@ $mobile: 360px;
     background: none;
     cursor: pointer;
     transition: all 0.3s ease 0s;
+    position: relative;
+
+    &::before {
+      content: 'Read more';
+    }
 
     &:hover {
       color: $yellow-shadow-color;
     }
+  }
+
+  details[open] &__button::before {
+    content: 'Less';
+  }
+  
+  &__button::-webkit-details-marker {
+    display: none;
   }
 
   &__button::-webkit-details-marker {

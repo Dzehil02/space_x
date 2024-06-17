@@ -8,7 +8,7 @@ function Banner() {
             <article className="discover__banner-text banner-text">
               <h1 className="banner-text__title banner-text__title--pink">Discover the vast expanses of <span>space</span></h1>
               <p className="banner-text__subtitle banner-text__subtitle--yellow">Where the possibilities are <span>endless!</span></p>
-              <a href='/' className='banner-text__button button button--yellow'>Learn more</a>
+              <a href='./' className='banner-text__button button button--yellow'>Learn more</a>
             </article>
           </div>
           <div className="discover__image">
