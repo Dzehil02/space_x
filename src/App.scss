@@ -496,10 +496,6 @@ $mobile: 360px;
 
     &__block-text {
       padding: 105px 30px 20px 25px;
-      @include flex-half;
-      &.block-text--big {
-        @include flex-half;
-      }
     }
   }
 
@@ -508,13 +504,6 @@ $mobile: 360px;
 
     &__container {
       padding: 0;
-    }
-
-    &__block-text {
-      @include flex-half(48%, true);
-      &.block-text--big {
-        @include flex-half(48%, true);
-      }
     }
   }
 }
@@ -584,15 +573,14 @@ $mobile: 360px;
 
   @include media-query($tablet) {
     padding: 105px 20px 20px 25px;
-    @include flex-half(48%, true);
-    &.block-text--big {
-      @include flex-half(48%, true);
-    }
+
+    @include flex-half(47%, true);
+
     &__title {
       font-size: 40px;
 
       &--small {
-        max-width: 635px;
+        max-width: 245px;
       }
     }
 
@@ -618,7 +606,10 @@ $mobile: 360px;
   }
 
   @include media-query($mobile) {
-    padding: 100px 40px 30px 25px;
+    padding: 95px 40px 30px 25px;
+
+    @include flex-half(100%, true);
+
   }
 }
 
